@@ -5,5 +5,5 @@ data class Exercise(
     val name: String,
     val type: String,
     val description: String,
-    val imagenUrl: String
+    val imageUrl: String
 )

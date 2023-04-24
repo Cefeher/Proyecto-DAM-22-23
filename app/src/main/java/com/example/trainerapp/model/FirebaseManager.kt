@@ -1,25 +1,26 @@
-package com.example.trainerapp.model
+package com.example.workouterapp.model
 
+import com.example.trainerapp.model.Training
 import com.google.firebase.firestore.FirebaseFirestore
 
 class FirebaseManager {
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    fun saveTraining(train: Training) {
-        db.collection("trains")
-            .document(train.id)
-            .set(train)
+    fun saveTraining(workout: Training) {
+        db.collection("Training")
+            .document(workout.id)
+            .set(workout)
     }
 
     fun getTraining(id: String, onComplete: (Training?) -> Unit) {
-        db.collection("trains")
+        db.collection("Training")
             .document(id)
             .get()
             .addOnSuccessListener { document ->
                 if (document.exists()) {
-                    val train = document.toObject(Training::class.java)
-                    onComplete(train)
+                    val workout = document.toObject(Training::class.java)
+                    onComplete(workout)
                 } else {
                     onComplete(null)
                 }
@@ -28,7 +29,4 @@ class FirebaseManager {
                 onComplete(null)
             }
     }
-
-    // otras funciones CRUD para trains y otros datos de la app
-
 }
