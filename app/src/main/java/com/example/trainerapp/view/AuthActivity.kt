@@ -1,9 +1,11 @@
-package com.example.trainerapp
+package com.example.trainerapp.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import com.example.trainerapp.HomeActivity
+import com.example.trainerapp.ProviderType
 import com.example.trainerapp.databinding.ActivityAuthBinding
 import com.google.firebase.auth.FirebaseAuth
 
